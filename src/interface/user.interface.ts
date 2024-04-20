@@ -1,5 +1,5 @@
 export interface User {
     name: string,
-    duplicateCount: number,
-    color: string
+    color?: string,
+    count: number | any
 }

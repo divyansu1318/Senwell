@@ -8,7 +8,7 @@ import { User } from 'src/interface/user.interface';
 })
 export class ApiService {
 
-  url = 'https://62d0e2c31cc14f8c088fd107.mockapi.io/';
+  url = 'https://6622b1103e17a3ac846db82b.mockapi.io/';
 
   constructor(private http: HttpClient) { }
 

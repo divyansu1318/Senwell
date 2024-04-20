@@ -17,7 +17,7 @@ export class DataTableComponent implements OnInit {
   }
 
   getData() {
-    this.apiService.get('user').subscribe((data: User[]) => {
+    this.apiService.get('Senwell').subscribe((data: User[]) => {
       if (data) {
         this.data = data;
         this.data.forEach((element: User) => {

@@ -19,10 +19,10 @@ export class DataTableComponent implements OnInit {
   getData() {
     this.apiService.get('Senwell').subscribe((data: User[]) => {
       if (data) {
-        this.data = data;
+        this.data = this.freqCounter(data);
         this.data.forEach((element: User) => {
           if (element) {
-            element.color = this.getColor(element.duplicateCount);
+            element.color = this.getColor(element.count);
           }
         });
       }
@@ -40,5 +40,23 @@ export class DataTableComponent implements OnInit {
       return 'white';
     }
   }  
+
+  freqCounter(arr: any) {
+    const obj: any = {};
+
+    for (let i = 0; i < arr.length; i++) {
+      let el = arr[i].name;
+      obj[el] ? (obj[el] += 1) : (obj[el] = 1);
+    }
+
+    let countArr = Object.values(obj);
+    let nameArr = Object.keys(obj);
+    let newArr = [];
+    for (let i = 0; i < nameArr.length; i++) {
+      newArr.push({ name: nameArr[i], count: countArr[i], color: '' });
+    }
+
+    return newArr;
+  };
 
 }
